@@ -17,7 +17,7 @@ namespace Graph_Api
 			foreach (var userId in userIds)
 			{
 
-				var filterDate = DateTime.UtcNow.AddMinutes(-179).AddSeconds(59).ToString("yyyy-MM-ddTHH:mm:ssZ");
+				var filterDate = DateTime.UtcNow.AddDays(-60).ToString("yyyy-MM-ddTHH:mm:ssZ");
 
 				var graphApiUrl = $"https://graph.microsoft.com/v1.0/users/{userId}/messages?$top=9999&select=id,lastModifiedDateTime,body,subject,internetMessageHeaders&$filter=lastModifiedDateTime ge {filterDate}";
 
